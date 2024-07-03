@@ -1,5 +1,19 @@
-var builder = WebApplication.CreateBuilder(args);
+using Ordering.API;
+using Ordering.Application;
+using Ordering.Infrastructure;
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+        builder.Services
+            .AddApplicationServices()
+            .AddInfrastructureServices(builder.Configuration)
+            .AddApiServices();
 
-app.Run();
+        var app = builder.Build();
+
+        app.Run();
+    }
+}
