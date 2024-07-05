@@ -24,10 +24,6 @@ namespace Ordering.Infrastructure.Data
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            builder.Entity<Customer>().Property(c => c.Name).IsRequired().HasMaxLength(100);
-
-            IEntityTypeConfiguration
-
             base.OnModelCreating(builder);
         }
 
